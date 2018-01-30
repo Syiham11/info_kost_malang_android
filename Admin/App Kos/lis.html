@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>app kos</title>
+</head>
+<body>
+
+	<input type="text" name="txt" id="uname" placeholder="User Name">
+	<input type="email" name="email" id="umail" placeholder="User Email">
+	<button onclick="updateFirebase()">Update</button>
+
+
+<script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
+	<script>
+	  // Initialize Firebase
+	  var config = {
+	    apiKey: "AIzaSyDEAsZ9DIo4Jb4a8ibfOF-QjUlI5gYIoPw",
+	    authDomain: "fir-logapp-hi.firebaseapp.com",
+	    databaseURL: "https://fir-logapp-hi.firebaseio.com",
+	    projectId: "fir-logapp-hi",
+	    storageBucket: "fir-logapp-hi.appspot.com",
+	    messagingSenderId: "1046573006820"
+	  };
+	  firebase.initializeApp(config);
+	
+	  function updateFirebase(){
+	  	const fb = firebase.database().ref()
+	  	//get field values
+	  	user_name = document.getElementById('uname').value
+	  	user_email = document.getElementById('umail').value
+	  	data = {user_name,user_email}
+	  	//update database
+	  	fb.child('id_user/user_email/').update(data);
+	  }
+	</script>
+
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>firebase</title>
+	<style>
+		/*body{
+			width: : 80%;
+			margin: 20px auto;
+		}
+		.hidden {
+			display:  none;
+		}*/
+	</style>
+</head>
+<body>
+	<h1>upload</h1>
+	<progress value="0" max="100" id="uploadProgress">0%</progress>
+	<input type="file" value="upload" id="uploadButton">
+
+	<script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
+	<script>
+	  // Initialize Firebase
+	  var config = {
+	    apiKey: "AIzaSyDEAsZ9DIo4Jb4a8ibfOF-QjUlI5gYIoPw",
+	    authDomain: "fir-logapp-hi.firebaseapp.com",
+	    databaseURL: "https://fir-logapp-hi.firebaseio.com",
+	    projectId: "fir-logapp-hi",
+	    storageBucket: "fir-logapp-hi.appspot.com",
+	    messagingSenderId: "1046573006820"
+	  };
+	  firebase.initializeApp(config);
+
+	  var storage = firebase.storage();
+
+	  var progress = document.getElementById('uploadProgress')
+	  var button = document.getElementById('uploadButton')
+
+	  button.addEventListener('change', function(e){
+	  	//get file 
+	  	var file = e.target.files[0];
+	  	var storageRef = storage.ref('upload/' + file.name)
+	  	 var uploadTask = storageRef.put(file)
+
+
+	  	 uploadTask.on('state_changed', loadUpload,errUpload, completeUpload)
+
+	  	 function loadUpload(data){
+	  	 	var percent = (data.bytesTransferred/data.totalBytes) * 100
+	  	 	progress.value = percent
+	  	 }
+
+	  	 function errUpload(err){
+	  	 	console.log('error')
+	  	 	console.log(err)
+	  	 }
+
+	  	 function completeUpload(data){
+	  	 	console.log('success')
+	  	 	console.log(data)
+	  	 }
+
+	  })
+
+	</script>
+
+
+	
+</body>
+</html>

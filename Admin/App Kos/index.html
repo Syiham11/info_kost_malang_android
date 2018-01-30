@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Aplikasi Kos Malang</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div id="content">
+		
+	</div>
+	<!-- <div id="login_div" class="main-div">
+		<h3>Silahkan Login coba</h3>
+		<input type="email" placeholder="Email" id="email_field" class="form-control" /> 
+		<input type="password" placeholder="Password" id="password_field" class="form-control" />
+		
+		<button onclick="login()" >Masuk</button>
+		
+	</div>
+ -->
+	<!-- <div id="user_div" class="loggedin-div">
+		<h3>Selamat datang</h3>
+		<p id="user_para">terimakasih</p>
+		<button onclick="logout()">keluar</button>
+	</div> -->
+
+
+	
+	<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+	<script>
+	  // Initialize Firebase
+	  var config = {
+	    apiKey: "AIzaSyCvD1W5jj0q_doFcnXdih9FiKvmhzkL4xc",
+	    authDomain: "aplikasi-kos-19976.firebaseapp.com",
+	    databaseURL: "https://aplikasi-kos-19976.firebaseio.com",
+	    projectId: "aplikasi-kos-19976",
+	    storageBucket: "aplikasi-kos-19976.appspot.com",
+	    messagingSenderId: "704809725173"
+	  };
+	  firebase.initializeApp(config);
+	</script>
+	<script src="index.js"></script>
+
+	<script>
+		firebase.auth().onAuthStateChanged(function(user) {
+		  if (user) {
+		    // User is signed in.
+		  } else {
+		    // No user is signed in.
+		  }
+		});
+	</script>
+</body>
+</html>

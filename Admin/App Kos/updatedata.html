@@ -1,0 +1,314 @@
+<body>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" onclick="btnhome()">K-Ma</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                  <li><a onclick="addAkun()">Daftar Akun</a></li>
+                </ul>
+                 <ul class="nav navbar-nav">
+                  <li><a onclick="tambahAkun()">Tambah Akun</a></li>
+                </ul>
+                <ul class="nav navbar-nav">
+                  <li><a onclick="updateAkun()">Ubah Akun</a></li>
+                </ul>
+                <ul class="nav navbar-nav">
+                  <li><a onclick="daftarUser()">Daftar User</a></li>
+                </ul>
+                <ul class="nav navbar-nav">
+                  <li><a onclick="addData()">Tambah Data Kos</a></li>
+                </ul>
+                <ul class="nav navbar-nav">
+                  <li><a onclick="updateData()">Ubah Data Kos</a></li>
+                </ul>
+
+          
+          <ul class="nav navbar-nav navbar-right">
+            <form class="navbar-form navbar-left">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Pencarian">
+              </div>
+              <button type="submit" class="btn btn-default">Cari</button>
+            </form>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pengaturan<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a onclick="logout()">Keluar</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    <!-- <table> -->
+      <div class="jumbotron">
+          <h3><center>"Masukkan ID untuk mengubah data kos"</center></h3>
+        </div>
+      <form class="form-horizontal">
+        
+        <div class="form-group">  
+            <label for="user_id" class="col-sm-2 control-label">ID</label>
+            <div class="col-sm-6">
+              <input type="user_id" name="id" class="form-control" id="user_id" placeholder="ID">
+            </div>
+        </div>
+        <br>
+        <br>
+        
+        <div class="form-group">
+          <label for="alamat" class="col-sm-2 control-label">Alamat</label>
+          <div class="col-sm-6">
+            <input type="alamat" class="form-control" id="alamat" placeholder="Alamat">
+          </div>
+        </div>
+
+
+        <div class="form-group">
+          <label for="fasKamar" class="col-sm-2 control-label">Fasilitas Kamar Tidur</label>
+          <div class="col-sm-6">
+            <input type="fasKamar" class="form-control" id="fasKamar" placeholder="Fasilitas Kamar Tidur">
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="fasKamarMandi" class="col-sm-2 control-label">Fasilitas Kamar Mandi</label>
+          <div class="col-sm-6">
+            <input type="fasKamarMandi" class="form-control" id="fasKamarMandi" placeholder="Fasilitas Kamar Mandi">
+          </div>
+        </div>
+        
+         <div class="form-group">
+          <label for="fasUmum" class="col-sm-2 control-label">Fasilitas Umum</label>
+          <div class="col-sm-6">
+            <input type="fasUmum" class="form-control" id="fasUmum" placeholder="Fasilitas Umum">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="hargaPerBulan" class="col-sm-2 control-label">Harga Perbulan</label>
+          <div class="col-sm-6">
+            <input type="hargaPerBulan" class="form-control" id="hargaPerBulan" placeholder="Harga Perbulan">
+          </div>
+        </div>
+
+        
+         <div class="form-group">
+          <label for="imageURL" class="col-sm-2 control-label">Gambar</label>
+          <div class="col-sm-6">
+            <input type="imageURL" class="form-control" id="imageURL" placeholder="Gambar">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="jenisKos" class="col-sm-2 control-label">Jenis Kos</label>
+          <div class="col-sm-6">
+            <input type="jenisKos" class="form-control" id="jenisKos" placeholder="Jenis Kos">
+          </div>
+        </div>
+
+       <div class="form-group">
+          <label for="jml" class="col-sm-2 control-label">Jumlah Kos</label>
+          <div class="col-sm-6">
+            <input type="jml" class="form-control" id="jml" placeholder="Jumlah Kos">
+          </div>
+        </div>
+       
+        <div class="form-group">
+          <label for="latitude" class="col-sm-2 control-label">Latitude</label>
+          <div class="col-sm-6">
+            <input type="latitude" class="form-control" id="latitude" placeholder="Latitude">
+          </div>
+                      <a href="maps.html">link gambar</a>
+        </div>
+
+         <div class="form-group">
+          <label for="longitude" class="col-sm-2 control-label">Longitude</label>
+          <div class="col-sm-6">
+            <input type="longitude" class="form-control" id="longitude" placeholder="Longitude">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="luasKamar" class="col-sm-2 control-label">Luas Kamar</label>
+          <div class="col-sm-6">
+            <input type="luasKamar" class="form-control" id="luasKamar" placeholder="Luas Kamar">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="minBayar" class="col-sm-2 control-label">Bayar</label>
+          <div class="col-sm-6">
+            <input type="minBayar" class="form-control" id="minBayar" placeholder="Bayar">
+          </div>
+        </div>
+
+          <div class="form-group">
+          <label for="namaKos" class="col-sm-2 control-label">Nama Kos</label>
+          <div class="col-sm-6">
+            <input type="namaKos" class="form-control" id="namaKos" placeholder="Nama Kos">
+          </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-6">
+              <button type="button" onclick="save_user();" class="btn btn-info">Ubah Data</button>
+            </div>
+          </div>
+
+      </form>   
+    </table>
+
+    <script>
+      var tblUsers = document.getElementById('tbl_user_list');
+      var databaseRef = firebase.database().ref('/dataKosts/detail/');
+      var rowIndex = 1;
+
+
+      databaseRef.once('value', function(snapshot) {
+        snapshot.forEach(function(childSnapshot) {
+          var childKey = childSnapshot.key;
+          var childData = childSnapshot.val();
+          
+          // ...
+          var row = tblUsers.insertRow(rowIndex);
+          var cellId = row.insertCell(0);
+          var cellAlamat = row.insertCell(1);
+          var cellFasKamar = row.insertCell(2);
+          var cellFasKamarMandi = row.insertCell(3);
+          var cellFasUmum = row.insertCell(4);
+          var cellHargaPerBulan = row.insertCell(5);
+          var cellImageURL = row.insertCell(6);
+          var cellJenisKos = row.insertCell(7);
+          var cellJml = row.insertCell(8);
+          var cellLatitude = row.insertCell(9);
+          var cellLongitude = row.insertCell(10);
+          var cellLuasKamar = row.insertCell(11);
+          var cellMinBayar = row.insertCell(12);
+          var cellNamaKos = row.insertCell(13);
+          
+          cellId.appendChild(document.createTextNode(childKey));
+          cellAlamat.appendChild(document.createTextNode(childData.alamat));
+          cellFasKamar.appendChild(document.createTextNode(childData.fasKamar));
+          cellFasKamarMandi.appendChild(document.createTextNode(childData.fasKamarMandi));
+          cellFasUmum.appendChild(document.createTextNode(childData.fasUmum));
+          cellHargaPerBulan.appendChild(document.createTextNode(childData.hargaPerBulan)); 
+          cellImageURL.appendChild(document.createTextNode(childData.imageURL));
+           cellJenisKos.appendChild(document.createTextNode(childData.jenisKos));
+           cellJml.appendChild(document.createTextNode(childData.jml));
+          cellLatitude.appendChild(document.createTextNode(childData.latitude));
+          cellLongitude.appendChild(document.createTextNode(childData.longitude));
+          cellLuasKamar.appendChild(document.createTextNode(childData.luasKamar));
+          cellMinBayar.appendChild(document.createTextNode(childData.minBayar));
+          cellNamaKos.appendChild(document.createTextNode(childData.namaKos));
+
+          rowIndex = rowIndex + 1;
+        });
+      });
+      
+
+      function save_user(){
+        // var user_name = document.getElementById('user_name').value;
+
+        // var uid = firebase.database().ref().child('users').push().key;
+
+        // var data = {
+        //  user_id: uid,
+        //  user_name: user_name
+        // }
+
+        // var updates = {};
+        // updates['/user/' + uid] = data;
+        // firebase.database().ref().update(updates);
+
+        // alert('the user is created successfully');
+        // reload_page();
+         var user_id = document.getElementById('user_id').value;
+        var alamat = document.getElementById('alamat').value;
+        var fasKamar = document.getElementById('fasKamar').value;
+        var fasKamarMandi = document.getElementById('fasKamarMandi').value;
+        var fasUmum = document.getElementById('fasUmum').value;
+        var hargaPerBulan = document.getElementById('hargaPerBulan').value;
+        var imageURL = document.getElementById('imageURL').value;
+        var jenisKos = document.getElementById('jenisKos').value;
+        var jml = document.getElementById('jml').value;
+        var latitude = document.getElementById('latitude').value;
+        var longitude = document.getElementById('longitude').value;
+        var luasKamar = document.getElementById('luasKamar').value;
+        var minBayar = document.getElementById('minBayar').value;
+        var namaKos = document.getElementById('namaKos').value;
+        
+        /*alert(user_id);*/
+        var data = {
+          user_id: user_id,
+           alamat: alamat,         
+          fasKamar: fasKamar,
+          fasKamarMandi: fasKamarMandi,
+          fasUmum: fasUmum,
+          hargaPerBulan: hargaPerBulan,
+          imageURL: imageURL,
+          jenisKos: jenisKos,
+          jml: jml,
+          latitude: latitude,
+          longitude: longitude,
+          luasKamar: luasKamar,
+          minBayar: minBayar,
+          namaKos: namaKos
+        }
+        
+
+        var updates = {};
+        updates['/dataKosts/detail/' + user_id] = data;
+        firebase.database().ref().update(updates);
+
+        alert('the user is updated successfully' + user_id);
+        reload_page();
+      }
+
+      function update_user(){
+        var user_name = document.getElementById('user_name').value;
+        var user_id = document.getElementById('user_id').value;
+
+        /*alert(user_id);*/
+        var data = {
+          user_id: user_id,
+          user_name: user_name
+        }
+
+        var updates = {};
+        updates['/user/' + user_id] = data;
+        firebase.database().ref().update(updates);
+
+        alert('the user is updated successfully' + user_id);
+        reload_page();
+      }
+
+      function delete_user(){
+        var user_id = document.getElementById('user_id').value;
+
+
+        firebase.database().ref().child('dataKosts/detail/' + user_id ).remove();
+        alert('the user is deleted successfully');
+        reload_page();
+
+      }
+      function reload_page(){
+        window.location.reload();
+      }
+
+    </script>
+  </body>

@@ -1,0 +1,215 @@
+<body>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" onclick="btnhome()">K-Ma</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a onclick="addAkun()">Daftar Akun</a></li>
+          </ul>
+           <ul class="nav navbar-nav">
+            <li><a onclick="tambahAkun()">Tambah Akun</a></li>
+          </ul>
+          <ul class="nav navbar-nav">
+            <li><a onclick="updateAkun()">Ubah Akun</a></li>
+          </ul>
+          <ul class="nav navbar-nav">
+            <li><a onclick="daftarUser()">Daftar User</a></li>
+          </ul>
+          <ul class="nav navbar-nav">
+            <li><a onclick="addData()">Tambah Data Kos</a></li>
+          </ul>
+          <ul class="nav navbar-nav">
+            <li><a onclick="updateData()">Ubah Data Kos</a></li>
+          </ul>
+
+          
+          <ul class="nav navbar-nav navbar-right">
+            <form class="navbar-form navbar-left">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Pencarian">
+              </div>
+              <button type="submit" class="btn btn-default">Cari</button>
+            </form>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pengaturan<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a onclick="logout()">Keluar</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    <!-- <table> -->
+      <div class="jumbotron">
+         <h2><center>"Daftar Pemilik Kos "</center></h2>
+          <h3><center>"Masukkan ID untuk jika ingin menghapus data akun"</center></h3>
+        </div>
+      <form class="form-horizontal">
+        
+        <div class="form-group">  
+            <label for="user_id" class="col-sm-2 control-label">ID </label>
+            <div class="col-sm-6">
+              <input type="user_id" name="id" class="form-control" id="user_id" placeholder="ID">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-6">
+              <button type="button" onclick="delete_akun();" class="btn btn-danger">Hapus Akun</button>
+            </div>
+          </div>
+        
+      </form>   
+    </table>
+
+    <div class="container">
+      <table class="table table-striped" id="tbl_user_list" >
+        <thead>
+          <tr>
+            <th>ID</th>
+            <!-- <th>Nama</th> -->
+            <th>Level</th>
+<!--             <th>No. Telephone</th> -->
+          </tr>
+        </thead>
+      </table>
+    </div>
+
+    <script>
+     var tblUsers = document.getElementById('tbl_user_list');
+      var databaseRef = firebase.database().ref('dataKosts/user/');
+      var rowIndex = 1;
+
+
+      databaseRef.once('value', function(snapshot) {
+        snapshot.forEach(function(childSnapshot) {
+          var childKey = childSnapshot.key;
+          var childData = childSnapshot.val();
+          
+          // ...
+          var row = tblUsers.insertRow(rowIndex);
+          var cellId = row.insertCell(0);
+          // var cellNama = row.insertCell(1);
+          var cellLevel = row.insertCell(1);
+          // var cellNoTelp = row.insertCell(3);
+     
+
+          cellId.appendChild(document.createTextNode(childKey));
+          // cellNama.appendChild(document.createTextNode(childData.nama));
+          cellLevel.appendChild(document.createTextNode(childData.level));
+          // cellNoTelp.appendChild(document.createTextNode(childData.notelp));
+      
+
+          rowIndex = rowIndex + 1;
+        });
+      });
+      
+
+      function update_user(){
+        // var user_name = document.getElementById('user_name').value;
+
+        // var uid = firebase.database().ref().child('users').push().key;
+
+        // var data = {
+        //  user_id: uid,
+        //  user_name: user_name
+        // }
+
+        // var updates = {};
+        // updates['/user/' + uid] = data;
+        // firebase.database().ref().update(updates);
+
+        // alert('the user is created successfully');
+        // reload_page();
+        var user_name = document.getElementById('user_name').value;
+        var alamat = document.getElementById('alamat').value;
+        // var user_id = document.getElementById('user_id').value;
+        
+        // var fastkt = document.getElementById('fastkt').value;
+        // var faskm = document.getElementById('faskm').value;
+        // var fasu = document.getElementById('fasu').value;
+        // var hap = document.getElementById('hap').value;
+        // var jkos = document.getElementById('jkos').value;
+        // var jumkos = document.getElementById('jumkos').value;
+        // var lat = document.getElementById('lat').value;
+        // var longt = document.getElementById('longt').value;
+        // var lkmr = document.getElementById('lkmr').value;
+        // var byr = document.getElementById('byr').value;
+        // var nkos = document.getElementById('nkos').value;
+
+        /*alert(user_id);*/
+        var data = {
+          user_id: user_id,
+          alamat: alamat,
+          user_name: user_name,
+          
+          fastkt: fastkt,
+          faskm: faskm,
+          fasu: fasu,
+          hap: hap,
+          jkos: jkos,
+          jumkos: jumkos,
+          lat: lat,
+          longt: longt,
+          lkmr: lkmr,
+          byr: byr,
+          nkos:nkos
+        }
+
+        var updates = {};
+        updates['/dataKosts/detail/' + user_id] = data;
+        firebase.database().ref().update(updates);
+
+        alert('the user is updated successfully' + user_id);
+        reload_page();
+      }
+
+      function save_user(){
+        var user_name = document.getElementById('user_name').value;
+        var user_id = document.getElementById('user_id').value;
+
+        /*alert(user_id);*/
+        var data = {
+          user_id: user_id,
+          user_name: user_name
+        }
+
+        var updates = {};
+        updates['/user/' + user_id] = data;
+        firebase.database().ref().update(updates);
+
+        alert('the user is updated successfully' + user_id);
+        reload_page();
+      }
+
+      function delete_akun(){
+        var user_id = document.getElementById('user_id').value;
+
+
+        firebase.database().ref().child('dataKosts/user/' + user_id ).remove();
+        alert('the user is deleted successfully');
+        reload_page();
+
+      }
+      function reload_page(){
+        window.location.reload();
+      }
+
+    </script>
+  </body>
